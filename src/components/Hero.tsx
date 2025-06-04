@@ -17,7 +17,7 @@ const Hero = () => {
         <div 
           className="w-full h-full bg-cover bg-center" 
           style={{ 
-            backgroundImage: "url('/assets/hero-loop.gif')",
+            backgroundImage: "url('./assets/hero-loop.gif')",
             filter: "brightness(0.7)"
           }}
         />

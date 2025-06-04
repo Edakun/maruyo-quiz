@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaTwitter } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 import { RiLineFill } from 'react-icons/ri'
 
 interface ResultProps {
@@ -18,7 +18,7 @@ const Result = ({ totalScore }: ResultProps) => {
   // シェアURL（実際のURLに置き換えてください）
   const shareUrl = 'https://maruyo-construction.co.jp/quiz'
 
-  // Twitterシェア
+  // Xシェア
   const shareTwitter = () => {
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`
     window.open(url, '_blank')
@@ -67,7 +67,7 @@ const Result = ({ totalScore }: ResultProps) => {
 
         <div className="mb-8">
           <a 
-            href="https://maruyo-construction.co.jp/recruit/entry" 
+            href="https://www.maruyoukensetu.jp/recruit/entry" 
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full btn btn-primary text-center"
@@ -82,11 +82,11 @@ const Result = ({ totalScore }: ResultProps) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={shareTwitter}
-            className="flex items-center px-4 py-2 text-white bg-blue-500 rounded-md"
-            aria-label="Twitterでシェア"
+            className="flex items-center px-4 py-2 text-white bg-black rounded-md"
+            aria-label="Xでシェア"
           >
-            <FaTwitter className="mr-2" />
-            シェア
+            <FaXTwitter className="mr-2" />
+            X
           </motion.button>
           
           <motion.button

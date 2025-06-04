@@ -103,10 +103,10 @@ const FaqModal: React.FC<FaqModalProps> = ({ onClose }) => {
         <div className="mt-8 text-center">
           <p className="text-gray-600 mb-4">さらに詳しい情報は採用サイトをご覧ください</p>
           <a
-            href="https://maruyo-construction.jp/recruit"
+            href="https://www.maruyoukensetu.jp/recruit"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-2 bg-primary text-white rounded-full hover:bg-primary-dark transition-colors font-medium"
+            className="inline-block px-6 py-2 bg-secondary-500 text-white rounded-full hover:bg-secondary-600 transition-colors font-medium"
           >
             採用サイトを見る
           </a>

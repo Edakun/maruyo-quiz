@@ -5,15 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // アセットのベースパスを設定
-  base: './',
+  base: '/maruyo-quiz/',
   // ビルド設定
   build: {
-    // バンドルサイズを最適化
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true
-      }
-    }
   }
 })

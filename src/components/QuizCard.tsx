@@ -40,7 +40,7 @@ const QuizCard = ({ question }: QuizCardProps) => {
       {/* 彩先輩のイラスト */}
       <div className="w-40 h-40 mb-6 overflow-hidden rounded-full md:w-48 md:h-48">
         <img 
-          src="/assets/aya.png" 
+          src="./assets/aya.png" 
           alt="彩先輩" 
           className="object-cover w-full h-full"
         />
