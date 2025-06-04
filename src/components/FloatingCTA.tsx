@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import FaqModal from './FaqModal.tsx'
-
+import FaqModal from './FaqModal'
 /**
  * 画面右下に常時表示される「?」ボタンとFAQモーダルを表示するコンポーネント
  */
