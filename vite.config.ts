@@ -9,5 +9,11 @@ export default defineConfig({
   // ビルド設定
   build: {
     // ビルド関連の設定をここに追加可能
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   }
 })
