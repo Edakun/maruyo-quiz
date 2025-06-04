@@ -8,5 +8,6 @@ export default defineConfig({
   base: '/maruyo-quiz/',
   // ビルド設定
   build: {
+    // ビルド関連の設定をここに追加可能
   }
 })
