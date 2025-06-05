@@ -23,6 +23,18 @@ const Hero = () => {
         />
       </div>
 
+      {/* 丸洋建設ロゴ（左上） */}
+      <div className="absolute top-4 left-4 z-20">
+        <motion.img 
+          src="/assets/h-logo.png" 
+          alt="丸洋建設ロゴ" 
+          className="h-16 md:h-20 lg:h-24" 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        />
+      </div>
+
       {/* コンテンツ */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-white">
         <motion.div

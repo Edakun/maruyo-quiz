@@ -35,12 +35,37 @@ const QuizCard = ({ question }: QuizCardProps) => {
     }, 1500)
   }
 
+  // 総問題数
+  const totalQuestions = 3;
+  
+  // 現在の問題番号（1-indexed）
+  const questionNumber = currentQuestion + 1;
+
   return (
     <div className="quiz-card">
+      {/* ステータスバー */}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-md mb-8"
+      >
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-lg font-bold text-primary-600">第{questionNumber}問</h3>
+          <span className="text-sm text-gray-600">全{totalQuestions}問</span>
+        </div>
+        <div className="w-full h-2 rounded-full bg-gray-200">
+          <div 
+            className="h-2 rounded-full bg-primary-500"
+            style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
+          />
+        </div>
+      </motion.div>
+
       {/* 彩先輩のイラスト */}
       <div className="w-40 h-40 mb-6 overflow-hidden rounded-full md:w-48 md:h-48">
         <img 
-          src="./assets/aya.png" 
+          src="/assets/aya.png" 
           alt="彩先輩" 
           className="object-cover w-full h-full"
         />
