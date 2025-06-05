@@ -1,8 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const framer_motion_1 = require("framer-motion");
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 // FAQ項目のデータ
 const faqItems = [
     {
@@ -31,9 +29,9 @@ const faqItems = [
  */
 const FaqModal = ({ onClose }) => {
     // モーダル内部の参照
-    const modalRef = (0, react_1.useRef)(null);
+    const modalRef = useRef(null);
     // ESCキーでモーダルを閉じる
-    (0, react_1.useEffect)(() => {
+    useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') {
                 onClose();
@@ -48,6 +46,6 @@ const FaqModal = ({ onClose }) => {
             onClose();
         }
     };
-    return ((0, jsx_runtime_1.jsx)("div", { className: "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50", onClick: handleOutsideClick, "aria-modal": "true", role: "dialog", "aria-label": "\u63A1\u7528FAQ", children: (0, jsx_runtime_1.jsxs)(framer_motion_1.motion.div, { ref: modalRef, className: "w-11/12 max-w-2xl max-h-[80vh] overflow-y-auto bg-white rounded-lg shadow-xl p-6", initial: { scale: 0.8, opacity: 0 }, animate: { scale: 1, opacity: 1 }, exit: { scale: 0.8, opacity: 0 }, transition: { type: 'spring', damping: 25, stiffness: 300 }, children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex justify-between items-center mb-6", children: [(0, jsx_runtime_1.jsx)("h2", { className: "text-2xl font-bold text-gray-800", children: "\u63A1\u7528FAQ" }), (0, jsx_runtime_1.jsx)("button", { className: "p-2 rounded-full hover:bg-gray-100 transition-colors", onClick: onClose, "aria-label": "\u9589\u3058\u308B", children: (0, jsx_runtime_1.jsx)("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-6 w-6 text-gray-600", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", children: (0, jsx_runtime_1.jsx)("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M6 18L18 6M6 6l12 12" }) }) })] }), (0, jsx_runtime_1.jsx)("div", { className: "space-y-4", children: faqItems.map((item, index) => ((0, jsx_runtime_1.jsxs)("div", { className: "border-b border-gray-200 pb-4 last:border-b-0", children: [(0, jsx_runtime_1.jsx)("h3", { className: "text-lg font-semibold text-gray-800 mb-2", children: item.question }), (0, jsx_runtime_1.jsx)("p", { className: "text-gray-600", children: item.answer })] }, index))) }), (0, jsx_runtime_1.jsxs)("div", { className: "mt-8 text-center", children: [(0, jsx_runtime_1.jsx)("p", { className: "text-gray-600 mb-4", children: "\u3055\u3089\u306B\u8A73\u3057\u3044\u60C5\u5831\u306F\u63A1\u7528\u30B5\u30A4\u30C8\u3092\u3054\u89A7\u304F\u3060\u3055\u3044" }), (0, jsx_runtime_1.jsx)("a", { href: "https://www.maruyoukensetu.jp/recruit", target: "_blank", rel: "noopener noreferrer", className: "inline-block px-6 py-2 bg-secondary-500 text-white rounded-full hover:bg-secondary-600 transition-colors font-medium", children: "\u63A1\u7528\u30B5\u30A4\u30C8\u3092\u898B\u308B" })] })] }) }));
+    return (_jsx("div", { className: "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50", onClick: handleOutsideClick, "aria-modal": "true", role: "dialog", "aria-label": "\u63A1\u7528FAQ", children: _jsxs(motion.div, { ref: modalRef, className: "w-11/12 max-w-2xl max-h-[80vh] overflow-y-auto bg-white rounded-lg shadow-xl p-6", initial: { scale: 0.8, opacity: 0 }, animate: { scale: 1, opacity: 1 }, exit: { scale: 0.8, opacity: 0 }, transition: { type: 'spring', damping: 25, stiffness: 300 }, children: [_jsxs("div", { className: "flex justify-between items-center mb-6", children: [_jsx("h2", { className: "text-2xl font-bold text-gray-800", children: "\u63A1\u7528FAQ" }), _jsx("button", { className: "p-2 rounded-full hover:bg-gray-100 transition-colors", onClick: onClose, "aria-label": "\u9589\u3058\u308B", children: _jsx("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-6 w-6 text-gray-600", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", children: _jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M6 18L18 6M6 6l12 12" }) }) })] }), _jsx("div", { className: "space-y-4", children: faqItems.map((item, index) => (_jsxs("div", { className: "border-b border-gray-200 pb-4 last:border-b-0", children: [_jsx("h3", { className: "text-lg font-semibold text-gray-800 mb-2", children: item.question }), _jsx("p", { className: "text-gray-600", children: item.answer })] }, index))) }), _jsxs("div", { className: "mt-8 text-center", children: [_jsx("p", { className: "text-gray-600 mb-4", children: "\u3055\u3089\u306B\u8A73\u3057\u3044\u60C5\u5831\u306F\u63A1\u7528\u30B5\u30A4\u30C8\u3092\u3054\u89A7\u304F\u3060\u3055\u3044" }), _jsx("a", { href: "https://www.maruyoukensetu.jp/recruit", target: "_blank", rel: "noopener noreferrer", className: "inline-block px-6 py-2 bg-secondary-500 text-white rounded-full hover:bg-secondary-600 transition-colors font-medium", children: "\u63A1\u7528\u30B5\u30A4\u30C8\u3092\u898B\u308B" })] })] }) }));
 };
-exports.default = FaqModal;
+export default FaqModal;

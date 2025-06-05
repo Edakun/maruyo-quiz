@@ -1,17 +1,11 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.useQuiz = exports.QuizContext = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const framer_motion_1 = require("framer-motion");
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState, createContext, useContext } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 // コンポーネントのインポート
-const Hero_1 = __importDefault(require("./components/Hero"));
-const QuizCard_1 = __importDefault(require("./components/QuizCard"));
-const Result_1 = __importDefault(require("./components/Result"));
-const FloatingCTA_1 = __importDefault(require("./components/FloatingCTA"));
+import Hero from './components/Hero';
+import QuizCard from './components/QuizCard';
+import Result from './components/Result';
+import FloatingCTA from './components/FloatingCTA';
 // クイズのデータ
 const quizQuestions = [
     {
@@ -88,16 +82,15 @@ const defaultContext = {
     soundEnabled: false,
     setSoundEnabled: () => { }
 };
-exports.QuizContext = (0, react_1.createContext)(defaultContext);
+export const QuizContext = createContext(defaultContext);
 // カスタムフック
-const useQuiz = () => (0, react_1.useContext)(exports.QuizContext);
-exports.useQuiz = useQuiz;
+export const useQuiz = () => useContext(QuizContext);
 function App() {
     // 状態管理
-    const [score, setScore] = (0, react_1.useState)(0);
-    const [currentQuestion, setCurrentQuestion] = (0, react_1.useState)(0);
-    const [showResult, setShowResult] = (0, react_1.useState)(false);
-    const [soundEnabled, setSoundEnabled] = (0, react_1.useState)(false);
+    const [score, setScore] = useState(0);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [showResult, setShowResult] = useState(false);
+    const [soundEnabled, setSoundEnabled] = useState(false);
     // コンテキスト値
     const quizContextValue = {
         score,
@@ -109,6 +102,6 @@ function App() {
         soundEnabled,
         setSoundEnabled,
     };
-    return ((0, jsx_runtime_1.jsx)(exports.QuizContext.Provider, { value: quizContextValue, children: (0, jsx_runtime_1.jsxs)("div", { className: "relative", children: [currentQuestion === 0 && !showResult && ((0, jsx_runtime_1.jsx)(Hero_1.default, {})), (0, jsx_runtime_1.jsx)(framer_motion_1.AnimatePresence, { mode: "wait", children: currentQuestion > 0 && !showResult && ((0, jsx_runtime_1.jsx)(framer_motion_1.motion.div, { initial: { x: '100%' }, animate: { x: 0 }, exit: { x: '-100%' }, transition: { type: 'tween', duration: 0.5 }, className: "absolute top-0 left-0 w-full h-screen", children: (0, jsx_runtime_1.jsx)(QuizCard_1.default, { question: quizQuestions[currentQuestion - 1] }) }, `question-${currentQuestion}`)) }), showResult && ((0, jsx_runtime_1.jsx)(framer_motion_1.motion.div, { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.5 }, className: "min-h-screen", children: (0, jsx_runtime_1.jsx)(Result_1.default, { totalScore: score }) })), (0, jsx_runtime_1.jsx)(FloatingCTA_1.default, {})] }) }));
+    return (_jsx(QuizContext.Provider, { value: quizContextValue, children: _jsxs("div", { className: "relative", children: [currentQuestion === 0 && !showResult && (_jsx(Hero, {})), _jsx(AnimatePresence, { mode: "wait", children: currentQuestion > 0 && !showResult && (_jsx(motion.div, { initial: { x: '100%' }, animate: { x: 0 }, exit: { x: '-100%' }, transition: { type: 'tween', duration: 0.5 }, className: "absolute top-0 left-0 w-full h-screen", children: _jsx(QuizCard, { question: quizQuestions[currentQuestion - 1] }) }, `question-${currentQuestion}`)) }), showResult && (_jsx(motion.div, { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.5 }, className: "min-h-screen", children: _jsx(Result, { totalScore: score }) })), _jsx(FloatingCTA, {})] }) }));
 }
-exports.default = App;
+export default App;
