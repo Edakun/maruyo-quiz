@@ -26,7 +26,7 @@ const Hero = () => {
       {/* 丸洋建設ロゴ（左上） */}
       <div className="absolute top-4 left-4 z-20">
         <motion.img 
-          src="/assets/h-logo.png" 
+          src="./assets/h-logo.png" 
           alt="丸洋建設ロゴ" 
           className="h-16 md:h-20 lg:h-24" 
           initial={{ opacity: 0, y: -10 }}
