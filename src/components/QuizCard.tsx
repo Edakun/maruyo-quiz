@@ -22,17 +22,17 @@ const QuizCard = ({ question }: QuizCardProps) => {
     setScore(score + selectedChoice.score)
     setReaction(selectedChoice.reaction)
     setShowReaction(true)
+  }
 
-    // 1.5秒後に次の質問へ
-    setTimeout(() => {
-      if (currentQuestion < 3) {
-        setCurrentQuestion(currentQuestion + 1)
-      } else {
-        setShowResult(true)
-      }
-      setSelectedAnswer(null)
-      setShowReaction(false)
-    }, 1500)
+  // 次の問題へ進む処理
+  const handleNextQuestion = () => {
+    if (currentQuestion < 3) {
+      setCurrentQuestion(currentQuestion + 1)
+    } else {
+      setShowResult(true)
+    }
+    setSelectedAnswer(null)
+    setShowReaction(false)
   }
 
   // 総問題数
@@ -111,6 +111,19 @@ const QuizCard = ({ question }: QuizCardProps) => {
         >
           {reaction}
         </motion.div>
+      )}
+
+      {/* 次へボタン - 回答選択後のみ表示 */}
+      {selectedAnswer !== null && (
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={handleNextQuestion}
+          className="px-6 py-2 mt-6 text-white transition-colors rounded-lg bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+        >
+          次へ
+        </motion.button>
       )}
     </div>
   )

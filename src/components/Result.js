@@ -20,7 +20,48 @@ const Result = ({ totalScore }) => {
         const url = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
         window.open(url, '_blank');
     };
-    return (_jsx("div", { className: "flex flex-col items-center justify-center min-h-screen px-4 py-12", children: _jsxs(motion.div, { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.5 }, className: "w-full max-w-lg p-8 bg-white rounded-lg shadow-lg", children: [_jsx("h2", { className: "mb-6 text-2xl font-bold text-center md:text-3xl", children: "\u8A3A\u65AD\u7D50\u679C" }), _jsxs("div", { className: "mb-6 text-center", children: [_jsx("p", { className: "mb-2 text-lg", children: "\u3042\u306A\u305F\u306E\u5EFA\u8A2D\u696D\u9069\u6027\u5EA6" }), _jsx("div", { className: "flex justify-center mb-4 text-3xl text-secondary-500", children: [...Array(starRating)].map((_, i) => (_jsx("span", { role: "img", "aria-label": "\u661F", children: "\u2605" }, i))) }), _jsx("p", { className: "text-lg", children: starRating === 5
+    return (_jsx("div", { className: "flex flex-col items-center justify-center min-h-screen px-4 py-12", children: _jsxs(motion.div, { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.5 }, className: "w-full max-w-lg p-8 bg-white rounded-lg shadow-lg", children: [_jsx("h2", { className: "mb-6 text-2xl font-bold text-center md:text-3xl", children: "\u8A3A\u65AD\u7D50\u679C" }), 
+        // 彩先輩の画像と吹き出しを追加
+        _jsxs("div", { className: "mb-6 relative flex justify-center", children: [
+            // 吹き出し
+            _jsx(motion.div, {
+                initial: { opacity: 1 },
+                animate: { 
+                    y: [0, -10, 0, -8, 0] 
+                },
+                transition: { 
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "loop"
+                },
+                className: "absolute top-1/4 right-3/4 transform -translate-y-full bg-white p-3 rounded-2xl shadow-md border-2 border-primary-300",
+                style: { minWidth: "140px", zIndex: 10 },
+                children: _jsx("p", { className: "text-center text-primary-600 font-medium", children: "\u3042\u306A\u305F\u306E\u6311\u6226\u5F85\u3063\u3066\u308B\u3088\uFF01" })
+            }),
+            // 吹き出しの矢印部分
+            _jsx(motion.div, {
+                initial: { opacity: 1 },
+                animate: { 
+                    y: [0, -10, 0, -8, 0] 
+                },
+                transition: { 
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "loop"
+                },
+                className: "absolute top-[37%] left-[25%] transform rotate-415 w-5 h-5 bg-white border-t-2 border-r-2 border-primary-300",
+                style: { zIndex: 5 }
+            }),
+            // 彩先輩の画像
+            _jsx("div", { className: "w-40 h-40 overflow-hidden rounded-full border-4 border-primary-500 relative z-1", children: 
+                _jsx("img", { 
+                    src: "./assets/aya-q1.png", 
+                    alt: "\u5F69\u5148\u8F29", 
+                    className: "object-cover w-full h-full" 
+                })
+            }),
+        ] }),
+        _jsxs("div", { className: "mb-6 text-center", children: [_jsx("p", { className: "mb-2 text-lg", children: "\u3042\u306A\u305F\u306E\u5EFA\u8A2D\u696D\u9069\u6027\u5EA6" }), _jsx("div", { className: "flex justify-center mb-4 text-3xl text-secondary-500", children: [...Array(starRating)].map((_, i) => (_jsx("span", { role: "img", "aria-label": "\u661F", children: "\u2605" }, i))) }), _jsx("p", { className: "text-lg", children: starRating === 5
                                 ? '素晴らしい！あなたは建設業に非常に向いています！'
                                 : 'あなたは建設業の素質があります！' })] }), _jsx("div", { className: "mb-8 p-4 bg-gray-100 rounded-md", children: _jsx("p", { className: "text-center", children: starRating === 5
                             ? '問題解決能力と先見性を持ち、チームワークも大切にできるあなたは、建設業で大いに活躍できるでしょう！'
