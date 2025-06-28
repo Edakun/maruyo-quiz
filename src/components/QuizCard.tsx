@@ -120,7 +120,7 @@ const QuizCard = ({ question }: QuizCardProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
           onClick={handleNextQuestion}
-          className="px-6 py-2 mt-6 text-white transition-colors rounded-lg bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+          className="px-6 py-2 mt-6 text-white transition-colors rounded-lg bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
         >
           次へ
         </motion.button>
